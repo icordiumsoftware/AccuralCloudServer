@@ -1534,7 +1534,7 @@
       <workItem from="1556188224264" duration="31143000" />
       <workItem from="1556360671080" duration="1051000" />
       <workItem from="1556361799076" duration="1103000" />
-      <workItem from="1556363158115" duration="589000" />
+      <workItem from="1556363158115" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <created>1556180182718</created>
@@ -1858,11 +1858,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556362627742</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Merge remote-tracking branch 'remotes/github/charitha'&#10;&#10;# Conflicts:&#10;#&#9;src/main/webapp/GRN.jsp&#10;">
+      <created>1556363757852</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1556363757852</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386574000" />
+    <option name="totallyTimeSpent" value="386597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
