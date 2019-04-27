@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="MENUINVOICE" pageWidth="226" pageHeight="566" columnWidth="186" leftMargin="20" rightMargin="20"
+              topMargin="10" bottomMargin="10" isIgnorePagination="true" uuid="4f40cc3c-9c90-40cb-9a11-6f52b5ed4aaa">
+    <property name="ireport.zoom" value="4.177248169415659"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="66"/>
+    <parameter name="TPLINE" class="java.lang.String"/>
+    <parameter name="TableID" class="java.lang.String"/>
+    <parameter name="HeadID" class="java.lang.String"/>
+    <parameter name="Cashier" class="java.lang.String"/>
+    <parameter name="Employee" class="java.lang.String"/>
+    <parameter name="Address" class="java.lang.String"/>
+    <parameter name="logo" class="java.lang.String"/>
+    <parameter name="CurrencyType" class="java.lang.String"/>
+    <parameter name="SubTotal" class="java.lang.Double"/>
+    <parameter name="Total" class="java.lang.Double"/>
+    <parameter name="Tendered" class="java.lang.Double"/>
+    <parameter name="Paid" class="java.lang.Double"/>
+    <parameter name="Due" class="java.lang.Double"/>
+    <parameter name="InvoiceTypeName" class="java.lang.String"/>
+    <parameter name="LogoStatus" class="java.lang.String"/>
+    <field name="COLLUMN_0" class="java.lang.String"/>
+    <field name="COLLUMN_1" class="java.lang.String"/>
+    <field name="COLLUMN_2" class="java.lang.Double"/>
+    <field name="COLLUMN_3" class="java.lang.Double"/>
+    <variable name="ItemTotalQty" class="java.lang.Double" calculation="Sum">
+        <variableExpression><![CDATA[$F{COLLUMN_2}]]></variableExpression>
+    </variable>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="187" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="96" width="186" height="15" isRemoveLineWhenBlank="true"
+                               uuid="2d4dea0d-7915-4d8b-8bb4-136def4cccb4"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{TPLINE}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="127" width="85" height="16" uuid="84e04dc6-5975-4030-bb9b-333cdf22a9d9"/>
+                <textFieldExpression><![CDATA["Table:"+$P{TableID}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="86" y="127" width="100" height="16" uuid="0949dfd8-a4d1-4d6c-909b-107eec8a57e0"/>
+                <textFieldExpression><![CDATA["Head:"+$P{HeadID}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="141" width="186" height="16" isRemoveLineWhenBlank="true"
+                               uuid="25eb4118-ef27-40c6-bcba-a0ae82c06db4"/>
+                <textFieldExpression><![CDATA["Cashier:"+$P{Cashier}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="156" width="186" height="16" isRemoveLineWhenBlank="true"
+                               uuid="3c4a929f-5497-4910-b936-fc801f99ad1b"/>
+                <textFieldExpression><![CDATA["Service By:"+$P{Employee}]]></textFieldExpression>
+            </textField>
+            <textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+                <reportElement x="0" y="171" width="185" height="16" uuid="9bd201ae-09a7-43ae-aba8-b07307bbc59a"/>
+                <textFieldExpression><![CDATA["Printed:"+new java.util.Date()]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="82" width="185" height="14" isRemoveLineWhenBlank="true"
+                               uuid="6cb72233-4a41-402b-bd2f-afb5860f2db6"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{Address}]]></textFieldExpression>
+            </textField>
+            <image scaleImage="FillFrame">
+                <reportElement x="0" y="0" width="185" height="82" isRemoveLineWhenBlank="true"
+                               uuid="ab6450d8-4102-4fc2-9469-549038208a5f">
+                    <printWhenExpression><![CDATA[($P{LogoStatus}=="1")]]></printWhenExpression>
+                </reportElement>
+                <imageExpression><![CDATA["C:\\50540690_2237634496505683_7208685517766918144_n.png"]]></imageExpression>
+            </image>
+            <line>
+                <reportElement x="1" y="126" width="186" height="1" isRemoveLineWhenBlank="true"
+                               uuid="7e4ceb4d-9022-4ed6-92f0-ee9f6b14a347">
+                    <printWhenExpression><![CDATA[$P{InvoiceTypeName}!=null]]></printWhenExpression>
+                </reportElement>
+                <graphicElement>
+                    <pen lineStyle="Dashed"/>
+                </graphicElement>
+            </line>
+            <line>
+                <reportElement x="1" y="111" width="186" height="1" uuid="6b2b40cb-b46b-4a4c-912d-4725a676b51f">
+                    <printWhenExpression><![CDATA[$P{InvoiceTypeName}!=null]]></printWhenExpression>
+                </reportElement>
+                <graphicElement>
+                    <pen lineStyle="Dashed"/>
+                </graphicElement>
+            </line>
+            <textField>
+                <reportElement x="1" y="112" width="184" height="14" isRemoveLineWhenBlank="true"
+                               uuid="266ffb67-f6a0-48ea-84ce-a0f13c47ba7d"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{InvoiceTypeName}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="16" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="13" width="186" height="1" uuid="8b908395-e781-4989-9155-30e34a252df0"/>
+                <graphicElement>
+                    <pen lineStyle="Dashed"/>
+                </graphicElement>
+            </line>
+            <staticText>
+                <reportElement x="0" y="0" width="103" height="14" uuid="6378631d-61e6-48f7-865a-cd9f4b89ad55"/>
+                <text><![CDATA[ITEM]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="103" y="0" width="26" height="14" uuid="fd6c2e78-c1b6-4752-aa68-6e08eec554ad"/>
+                <text><![CDATA[QTY]]></text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="0" width="186" height="1" uuid="14b47fbd-1e9c-471b-9d77-33ba856bf1f5"/>
+                <graphicElement>
+                    <pen lineStyle="Dashed"/>
+                </graphicElement>
+            </line>
+            <staticText>
+                <reportElement x="129" y="0" width="53" height="15" uuid="e5379d7b-ec91-4900-8eec-aa161b0263b6"/>
+                <textElement textAlignment="Right">
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[SUM]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="16" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="103" height="16" uuid="1dc4d656-2370-4557-8097-1c8bff3acf1b"/>
+                <textFieldExpression><![CDATA[$F{COLLUMN_1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="103" y="0" width="26" height="16" uuid="6afaa45d-a335-48a5-af7e-aca06cda43ed"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{COLLUMN_2}]]></textFieldExpression>
+            </textField>
+            <textField pattern=" #,##0.00">
+                <reportElement x="129" y="0" width="53" height="16" uuid="0e148999-a9ee-4e84-ad05-fcac93edcf72"/>
+                <textElement textAlignment="Right">
+                    <paragraph rightIndent="3"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_3}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="107" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="95" width="185" height="12" uuid="7eab5a68-66c8-4115-9d42-1cc741260853"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isStrikeThrough="false"/>
+                </textElement>
+                <text><![CDATA[System By Icordium 0712689355]]></text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="0" width="186" height="1" uuid="2751ca90-2b65-4dfe-b2e1-56fdf3301956"/>
+                <graphicElement>
+                    <pen lineStyle="Dashed"/>
+                </graphicElement>
+            </line>
+            <textField pattern="#,##0.00">
+                <reportElement x="100" y="2" width="82" height="15" uuid="9c86227c-eb8c-4feb-80f4-3e9eb48a9a6b"/>
+                <textElement textAlignment="Right">
+                    <paragraph rightIndent="3"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{SubTotal}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="0" y="17" width="186" height="1" uuid="917f6024-1ca9-48e2-b129-83648148b836"/>
+                <graphicElement>
+                    <pen lineStyle="Dashed"/>
+                </graphicElement>
+            </line>
+            <staticText>
+                <reportElement x="30" y="2" width="43" height="16" uuid="5771edfd-2a15-40ad-8f0f-06dc7c67d53f"/>
+                <textElement textAlignment="Right"/>
+                <text><![CDATA[Subtotal:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="74" y="2" width="26" height="15" uuid="351358d7-31e7-4776-a990-d78968636d36"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{CurrencyType}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="33" y="19" width="40" height="21" isRemoveLineWhenBlank="true"
+                               uuid="21901c07-3daa-43f7-aca5-6eb569ec34b9">
+                    <printWhenExpression><![CDATA[$P{Total}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="74" y="19" width="26" height="21" isRemoveLineWhenBlank="true"
+                               uuid="d4788511-132b-4696-8d8e-d90a6a1dd57b">
+                    <printWhenExpression><![CDATA[$P{Total}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{CurrencyType}]]></textFieldExpression>
+            </textField>
+            <textField pattern=" #,##0.00">
+                <reportElement x="100" y="19" width="82" height="21" isRemoveLineWhenBlank="true"
+                               uuid="7a7eeb40-e7cc-49f7-84eb-954177104b86">
+                    <printWhenExpression><![CDATA[$P{Total}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true"/>
+                    <paragraph rightIndent="3"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{Total}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="74" y="55" width="26" height="15" isRemoveLineWhenBlank="true"
+                               uuid="76d34678-d393-4ec2-8fc2-3d671c4956df">
+                    <printWhenExpression><![CDATA[$P{Paid}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{CurrencyType}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="33" y="55" width="40" height="15" isRemoveLineWhenBlank="true"
+                               uuid="70b79ae4-b171-4acd-9c9c-4efd8086fc41">
+                    <printWhenExpression><![CDATA[$P{Paid}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right"/>
+                <text><![CDATA[Paid:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1" y="85" width="185" height="12" uuid="1dd7b9f4-43f2-4c73-85a6-b08b38140fde"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true" isStrikeThrough="false"/>
+                </textElement>
+                <text><![CDATA[Thank You.... Come Again!]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="74" y="70" width="26" height="15" isRemoveLineWhenBlank="true"
+                               uuid="8b5d115c-ee96-42d3-8496-2acd85fd1a6c">
+                    <printWhenExpression><![CDATA[$P{Due}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{CurrencyType}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="33" y="70" width="40" height="15" isRemoveLineWhenBlank="true"
+                               uuid="57ed01fe-e6ac-4696-ae8a-5647d670c3f3">
+                    <printWhenExpression><![CDATA[$P{Due}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right"/>
+                <text><![CDATA[Due:]]></text>
+            </staticText>
+            <textField pattern=" #,##0.00">
+                <reportElement x="100" y="55" width="82" height="15" isRemoveLineWhenBlank="true"
+                               uuid="0d7065ff-7031-4569-b79c-101fe2e64c07">
+                    <printWhenExpression><![CDATA[$P{Paid}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right">
+                    <paragraph rightIndent="3"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{Paid}]]></textFieldExpression>
+            </textField>
+            <textField pattern=" #,##0.00">
+                <reportElement x="100" y="70" width="82" height="15" isRemoveLineWhenBlank="true"
+                               uuid="d088cf9f-441f-4d42-9bf0-ec6a52a7b4da">
+                    <printWhenExpression><![CDATA[$P{Due}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right">
+                    <paragraph rightIndent="3"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{Due}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="74" y="40" width="26" height="15" isRemoveLineWhenBlank="true"
+                               uuid="b8653602-0ee5-4a77-8770-8eceee00914d">
+                    <printWhenExpression><![CDATA[$P{Tendered}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{CurrencyType}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="21" y="40" width="52" height="15" isRemoveLineWhenBlank="true"
+                               uuid="fea7c643-0de7-4c36-bfb2-a4fc14446c11">
+                    <printWhenExpression><![CDATA[$P{Tendered}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right"/>
+                <text><![CDATA[Tendered:]]></text>
+            </staticText>
+            <textField pattern=" #,##0.00">
+                <reportElement x="100" y="40" width="82" height="15" isRemoveLineWhenBlank="true"
+                               uuid="c8e8ba23-dc92-4b51-9faf-7ba6446d635a">
+                    <printWhenExpression><![CDATA[$P{Tendered}>0.00]]></printWhenExpression>
+                </reportElement>
+                <textElement textAlignment="Right">
+                    <paragraph rightIndent="3"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{Tendered}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>

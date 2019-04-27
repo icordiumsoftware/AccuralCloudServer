@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="menuitemwithrecipie" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20"
+              rightMargin="20" topMargin="20" bottomMargin="20" uuid="8eac1fa7-5628-4798-adfc-ed42ce2491f0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <field name="COLLUMN_0" class="java.lang.String"/>
+    <field name="COLLUMN_1" class="java.lang.String"/>
+    <field name="COLLUMN_2" class="java.lang.String"/>
+    <field name="COLLUMN_3" class="java.lang.String"/>
+    <field name="COLLUMN_4" class="java.lang.String"/>
+    <field name="COLLUMN_5" class="java.lang.String"/>
+    <field name="COLLUMN_6" class="java.lang.String"/>
+    <field name="COLLUMN_7" class="java.lang.Double"/>
+    <field name="COLLUMN_8" class="java.lang.String"/>
+    <group name="MenuID">
+        <groupExpression><![CDATA[$F{COLLUMN_0}]]></groupExpression>
+        <groupHeader>
+            <band height="44">
+                <textField>
+                    <reportElement x="0" y="0" width="100" height="20" uuid="123f6221-5dbd-4de3-8514-909a0da8c5e2"/>
+                    <textFieldExpression><![CDATA[$F{COLLUMN_0}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="102" y="1" width="253" height="20" uuid="2d43c402-e270-4dfe-8a3a-965e8a18a9d6"/>
+                    <textFieldExpression><![CDATA[$F{COLLUMN_1}]]></textFieldExpression>
+                </textField>
+                <textField pattern="#,##0.00">
+                    <reportElement x="355" y="1" width="100" height="20" uuid="ac15ea82-6cf1-4748-ab12-fd8f1511934d"/>
+                    <textElement>
+                        <font isStrikeThrough="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{COLLUMN_2}]]></textFieldExpression>
+                </textField>
+                <line>
+                    <reportElement x="2" y="20" width="553" height="1" uuid="b6151541-e25d-44e9-aef7-50575a580f56"/>
+                    <graphicElement>
+                        <pen lineStyle="Dashed"/>
+                    </graphicElement>
+                </line>
+                <line>
+                    <reportElement x="3" y="42" width="553" height="1" uuid="28973a8a-4603-43dd-abc2-da4cf21fb014"/>
+                    <graphicElement>
+                        <pen lineStyle="Dashed"/>
+                    </graphicElement>
+                </line>
+                <staticText>
+                    <reportElement x="3" y="23" width="72" height="20" uuid="e8d9f32a-d22d-4ffb-9398-152a7cfeda8e"/>
+                    <text><![CDATA[Product ID]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="76" y="21" width="93" height="20" uuid="326fe3a6-187a-4f0a-be55-2254dff384ef"/>
+                    <text><![CDATA[Code]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="169" y="23" width="286" height="20" uuid="a1c3ebc0-7fcf-4294-9962-cc19703e3f05"/>
+                    <textElement>
+                        <font size="10"/>
+                    </textElement>
+                    <text><![CDATA[Product Description]]></text>
+                </staticText>
+                <textField>
+                    <reportElement x="455" y="0" width="100" height="20" uuid="be7a166c-0bf8-4313-b96a-2a1909304276"/>
+                    <textFieldExpression><![CDATA[$F{COLLUMN_3}]]></textFieldExpression>
+                </textField>
+                <staticText>
+                    <reportElement x="456" y="23" width="100" height="20" uuid="4d5e092a-518f-44d3-b550-39ce24267799"/>
+                    <text><![CDATA[Qty]]></text>
+                </staticText>
+            </band>
+        </groupHeader>
+        <groupFooter>
+            <band height="9">
+                <line>
+                    <reportElement x="2" y="3" width="553" height="1" uuid="86adef9c-5e61-49cf-9fc7-88549f344992"/>
+                    <graphicElement>
+                        <pen lineStyle="Double"/>
+                    </graphicElement>
+                </line>
+            </band>
+        </groupFooter>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="33" splitType="Stretch">
+            <staticText>
+                <reportElement x="75" y="0" width="407" height="33" uuid="66cff168-153f-401e-927a-02b7bc7d4b20"/>
+                <textElement textAlignment="Center">
+                    <font size="20" isBold="true" isUnderline="false"/>
+                </textElement>
+                <text><![CDATA[Menu Item Recepie Details ]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="6" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="8" splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="22" splitType="Stretch">
+            <textField>
+                <reportElement x="3" y="1" width="73" height="20" uuid="1bc8fc3a-2125-4c00-87d5-5243e2619f7a"/>
+                <textFieldExpression><![CDATA[$F{COLLUMN_4}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="76" y="1" width="93" height="20" uuid="e372d504-22e8-4460-b7b2-312388ad9ef4"/>
+                <textFieldExpression><![CDATA[$F{COLLUMN_5}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="169" y="0" width="286" height="20" uuid="a9e50485-8dd5-4ff9-b1c1-43cf034fba79"/>
+                <textFieldExpression><![CDATA[$F{COLLUMN_6}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="455" y="0" width="100" height="20" uuid="a256fcc5-9737-4a8f-988a-1148c8fa170c"/>
+                <textFieldExpression><![CDATA[$F{COLLUMN_7}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="4" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="4" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="14" splitType="Stretch"/>
+    </summary>
+</jasperReport>

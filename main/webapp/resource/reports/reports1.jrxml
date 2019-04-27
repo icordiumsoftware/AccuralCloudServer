@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="reports1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="15" bottomMargin="20" uuid="fdad70bc-64ea-4967-97a4-3a5dbb5b0eed">
+    <property name="ireport.zoom" value="1.610510000000001"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="InvoiceID" class="java.lang.String"/>
+    <parameter name="DateTime" class="java.lang.String"/>
+    <parameter name="Customer" class="java.lang.String"/>
+    <parameter name="DiliveryAddress" class="java.lang.String"/>
+    <parameter name="CompanyTittle" class="java.lang.String"/>
+    <parameter name="BranchEmail" class="java.lang.String"/>
+    <parameter name="Deposit" class="java.lang.Double"/>
+    <parameter name="CompanyIconPath" class="java.lang.String"/>
+    <parameter name="heddericon" class="java.lang.String"/>
+    <parameter name="footericon" class="java.lang.String"/>
+    <field name="COLLUMN_0" class="java.lang.String"/>
+    <field name="COLLUMN_1" class="java.lang.String"/>
+    <field name="COLLUMN_2" class="java.lang.String"/>
+    <field name="COLLUMN_3" class="java.lang.String"/>
+    <field name="COLLUMN_4" class="java.lang.String"/>
+    <field name="COLLUMN_5" class="java.lang.String"/>
+    <field name="COLLUMN_6" class="java.lang.String"/>
+    <field name="COLLUMN_7" class="java.lang.Double"/>
+    <field name="COLLUMN_8" class="java.lang.String"/>
+    <variable name="Total" class="java.lang.Double" calculation="Sum">
+        <variableExpression><![CDATA[$F{COLLUMN_7}]]></variableExpression>
+    </variable>
+    <variable name="Balance" class="java.lang.Double">
+        <variableExpression>
+            <![CDATA[($V{Total}==null?0.00:$V{Total})-($P{Deposit}==null?0.00:$P{Deposit})]]></variableExpression>
+    </variable>
+    <variable name="CategoryTotal" class="java.lang.Double" resetType="Group" resetGroup="Category" calculation="Sum">
+        <variableExpression><![CDATA[($F{COLLUMN_7}==null?0.00:$F{COLLUMN_7})]]></variableExpression>
+    </variable>
+    <group name="Category">
+        <groupExpression><![CDATA[$F{COLLUMN_8}]]></groupExpression>
+        <groupHeader>
+            <band height="16">
+                <line>
+                    <reportElement x="2" y="14" width="554" height="1" forecolor="#FF6666"
+                                   uuid="676df427-9a00-4d5e-bbbf-9b44b0cd7c70"/>
+                </line>
+                <textField>
+                    <reportElement x="0" y="1" width="100" height="15" uuid="154027ee-57e4-4600-a3ca-14056a3406c6"/>
+                    <textElement>
+                        <font fontName="Iskoola Pota" size="8"/>
+                    </textElement>
+                    <textFieldExpression>
+                        <![CDATA[($F{COLLUMN_8}=="1"?"Rental Products":($F{COLLUMN_8}=="2"?"Services":($F{COLLUMN_8}=="3"?"Other Charges":"")))]]></textFieldExpression>
+                </textField>
+            </band>
+        </groupHeader>
+        <groupFooter>
+            <band height="22">
+                <line>
+                    <reportElement x="1" y="0" width="554" height="1" forecolor="#FF6666"
+                                   uuid="4ab2b579-cdfc-4e5b-a24b-56accae0ff89"/>
+                </line>
+                <textField>
+                    <reportElement x="358" y="1" width="112" height="20" uuid="e2dc3e03-0848-4d89-be92-5cdd7aaa0763"/>
+                    <textElement>
+                        <font fontName="Iskoola Pota"/>
+                    </textElement>
+                    <textFieldExpression>
+                        <![CDATA[($F{COLLUMN_8}=="1"?"Rental Products Total ":($F{COLLUMN_8}=="2"?"Services Total":($F{COLLUMN_8}=="3"?"Other Charges Total":"")))]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="471" y="2" width="84" height="20" uuid="6e1af0c2-cb8e-4a19-b591-bf5fa4f711a1"/>
+                    <textElement textAlignment="Right">
+                        <font fontName="Iskoola Pota"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$V{CategoryTotal}]]></textFieldExpression>
+                </textField>
+            </band>
+        </groupFooter>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="266" splitType="Stretch">
+            <image scaleImage="FillFrame">
+                <reportElement x="2" y="2" width="98" height="64" uuid="aa373bec-161c-4833-a933-b0d523263dad"/>
+                <imageExpression><![CDATA[$P{heddericon}]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement x="246" y="111" width="99" height="20" uuid="c20ac150-184f-49a9-bb57-31eb419f69b8"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{InvoiceID}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="455" y="229" width="96" height="18" uuid="81ebc1af-ca95-4d03-82aa-773c6d61c99c"/>
+                <textElement textAlignment="Center" verticalAlignment="Bottom">
+                    <font fontName="Iskoola Pota" size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{DateTime}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="2" y="229" width="453" height="18" uuid="58bad0ad-a9d7-4671-85be-490ba872caa1"/>
+                <textElement verticalAlignment="Bottom">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA["නම "+$P{Customer}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="2" y="247" width="548" height="16" uuid="1921d2e8-0be2-4f0a-93db-7e2b86c64ae8"/>
+                <textElement verticalAlignment="Bottom">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA["ලිපිනය "+$P{DiliveryAddress}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="2" width="452" height="32" forecolor="#FF6666"
+                               uuid="693e03d2-b677-43c1-b368-ccd50e7f6706"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Iskoola Pota" size="27" isBold="true" isStrikeThrough="false"/>
+                </textElement>
+                <text><![CDATA[RUKMAN ENGINERING WORKS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="34" width="452" height="32" forecolor="#003366"
+                               uuid="562428cb-6092-4618-9f36-5803837b4d62"/>
+                <textElement textAlignment="Center" markup="html">
+                    <font fontName="Iskoola Pota" size="27" isBold="true"/>
+                </textElement>
+                <text><![CDATA[රුක්මන් ඉංජිනියරින් වර්ක්ස් ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="2" y="96" width="192" height="12" uuid="f8c6bb68-723b-4df8-8cf0-b3a71b5b11b5"/>
+                <textElement>
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[NO. 434 , Galle Road, Pamburana,Matara]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1" y="66" width="550" height="30" backcolor="#FF6666"
+                               uuid="0e0241da-5f5e-4f34-9305-b08364cb8141"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+                    <font fontName="Iskoola Pota" size="12" isBold="true"/>
+                </textElement>
+                <text>
+                    <![CDATA[සියලුම ප්‍රමාණයේ ඉනිමන්,කොන්ක්‍රිට් අච්චු,කොන්ක්‍රිට් කඩන මැෂින්, හැමර් ඩ්‍රිල්, වෙල්ඩින් ට්‍රාන්ස්ෆෝමර් ඇතුලු සියළුම වර්ගවල ගෘහ නිර්මාණ විදුලි උපකරණ ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="2" y="109" width="244" height="12" uuid="e186b705-fb3e-4c28-85a3-7394c8246447"/>
+                <textElement>
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Tele: 0717646921, 072 7646921 Fax: 041 2235921]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="2" y="122" width="150" height="18" uuid="2f2b6779-6b0c-44af-a0ef-93f35e9b8f89"/>
+                <textElement>
+                    <font fontName="Iskoola Pota" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Hotline: 072 7646922]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="2" y="140" width="277" height="18" uuid="46fb33ac-dafd-4961-854f-d1894e64b92e"/>
+                <textElement>
+                    <font fontName="Iskoola Pota" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[උපකරණ / බඩු භාණ්ඩ බදුදීමේ ගිවිසුම ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="358" y="96" width="192" height="14" uuid="6495a307-6ac1-4fda-8a42-636a194edcd4"/>
+                <textElement>
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[NO. 435 , Matara Road, Pamburana,Matara]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="358" y="111" width="192" height="14" uuid="225adbb6-b9b4-4da7-a022-0a752598a777"/>
+                <textElement>
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Tel: 072 7746928 ( Food City ඉදිරිපිට)]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="2" y="158" width="548" height="71" uuid="0f4f80cd-734e-443d-9b10-0c2e9c2d646c"/>
+                <textElement markup="html">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text>
+                    <![CDATA[අංක  434,ගාලු පාර, පඹුරණ,  මාතර ස්ථානයේ රුක්මන්  ඉංජිනියරින්  වර්ක්ස් ආයතනයට අයත් ගබඩාවෙන් පහත සදහන් උපකරණ / බඩු භාණ්ඩ පහත සදහන් මිල ගණන් වලට පුර්ණ එකගතාව පළ කරමින් අවශ්‍ය දින ගණනද පහත සදහන් කරමින් එම උපකරණ / බඩු භාණ්ඩ කුලී පදනමයටතේ සදහන් ප්‍රමාණයෙන් ඉතා හොද තත්වයෙන් භාරගත් බව සහතික වෙමි. එමෙන්ම භාරාගත් උපකරණ / බඩු භාණ්ඩ වලට යම් අලාභ හානියක් බදු කාලය තුල සිදුවුවහොත් රුක්මන් ඉංජිනියරින් වර්ක්ස් ආයතනය මගින් කරනු ලබන ඇස්තමේන්තුව අනුව එකවර වහාම මුදලින් ගෙවීමට පොරොන්දු වෙමි.එමෙන්ම බදු මුදල් හෝ අලාභ හානි සදහා ඇස්තමේන්තු මුදල් ඕනෑම අවස්ථාවක ආරක්ෂක ඇපකර මුදලින් ලබාගැනීමට මින් රුක්මන් ඉංජිනියරින් වර්ක්ස් ආයතනයට බලය පවරමි.]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="5" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="22" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="2" width="55" height="20" uuid="9091cd10-52e5-4b61-8ec5-dd4b69cbb072"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="55" y="2" width="143" height="20" uuid="564ec1f0-4fe1-46a7-9914-2283f67850bf"/>
+                <textElement verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Description]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="198" y="2" width="81" height="20" uuid="44b6e526-b05e-410d-8b10-fd5d2c251db5"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Price]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="281" y="2" width="53" height="20" uuid="52e0ae31-602c-416c-8273-cdd80d9c626d"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Day Count]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="335" y="2" width="40" height="20" uuid="975889be-00b1-43c8-bdd2-f2aa4b6a986b"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Qty]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="376" y="2" width="45" height="20" uuid="678add95-dd41-4268-9811-25a5acba3b1c"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Free Qty]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="421" y="4" width="49" height="17" uuid="94539e07-a1e4-4006-b1df-877628228f05"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Discount]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="470" y="2" width="85" height="20" uuid="3ae643c4-5b6b-4bca-9f03-9775b7600ba2"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+            <line>
+                <reportElement x="1" y="21" width="554" height="1" forecolor="#FF6666"
+                               uuid="8464c098-0c15-4a2a-97bf-ac668dc920b0"/>
+            </line>
+            <line>
+                <reportElement x="1" y="2" width="554" height="1" forecolor="#FF6666"
+                               uuid="42c92cc3-fd64-49cc-b92a-daf5abd08614"/>
+            </line>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="24" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="3" width="55" height="20" uuid="c56687d7-2607-4f90-a909-27f37ec53314"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_0}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="55" y="3" width="143" height="20" uuid="f8d6e629-a4b8-451b-85f4-e8c90acbb848"/>
+                <textElement>
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="198" y="3" width="82" height="20" uuid="765a3baf-e95d-490b-8b8e-df0f6753b6f3"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="281" y="3" width="53" height="20" uuid="b959060d-9298-4d15-ba24-c8f087693efa"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_3}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="335" y="3" width="40" height="20" uuid="36376fc7-eb2c-466c-b930-06f64901b476"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_4}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="376" y="3" width="45" height="20" uuid="8d6c4b19-ba12-485c-be2c-5f83115bb08e"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_5}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="421" y="3" width="49" height="20" uuid="b0cf2f90-6d42-448c-aafd-b331cc31cf42"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_6}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="471" y="3" width="84" height="20" uuid="962b8e43-a4ca-4e7a-ad5d-00e30ca653a3"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{COLLUMN_7}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="2" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="40" splitType="Stretch">
+            <textField>
+                <reportElement x="234" y="0" width="100" height="20" uuid="c0efe310-8e8f-4deb-8456-893ccc8f3aa5"/>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="1" y="20" width="554" height="20" uuid="ad26446e-e90e-4382-98fd-14ee8676f888"/>
+                <textElement textAlignment="Center" markup="html">
+                    <font fontName="Iskoola Pota" size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Email: "+$P{BranchEmail}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="301" splitType="Stretch">
+            <staticText>
+                <reportElement x="335" y="3" width="100" height="20" uuid="ce6f11e2-bfea-4a4b-8779-773bccd8bc28"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+            <line>
+                <reportElement x="2" y="2" width="550" height="1" forecolor="#FF6666"
+                               uuid="6158d64b-5c54-411e-962a-3a971dd11bd8"/>
+            </line>
+            <textField>
+                <reportElement x="436" y="3" width="117" height="20" uuid="a81b4a29-91ec-4995-b641-e5bcb84696e9"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="335" y="23" width="100" height="20" uuid="f0ff6ea7-c445-468b-a6e2-df49e0750997"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Deposit Amount]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="437" y="23" width="115" height="20" uuid="5ec67f25-0323-41c1-9783-73f223dd1595"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{Deposit}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="335" y="43" width="100" height="20" uuid="88e7ca23-18c7-4b65-999a-3aadc43ab614"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[Balance]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="438" y="43" width="114" height="20" uuid="a3faf63e-739b-4564-ae5e-4b0980fa5fcf"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{Balance}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="63" width="548" height="144" uuid="d08e077e-7d05-4068-91c8-f5f55cf1c3e3"/>
+                <textElement>
+                    <font fontName="Iskoola Pota"/>
+                </textElement>
+                <text><![CDATA[කළමණාකරුගේ අත්සන .................................  දිනය....................  වේලාව.....................
+අවෂ්‍ය දින ගණන ............................................
+ගබඩා භාරකරුගේ අත්සන ................................  ප්‍රවාහනය කරන ලද වාහන අංකය ............
+භාණ්ඩ ගණන්කර බලා නිවසේ හෝ වැඩබිමේ මහත්මයා හෝ මහත්මියගේ හෝ වගකිවයුතු නිලධාරී මහත්මයා
+විසින් නිවැරදිව භාරගත් බවට .............................
+
+නම .................................................................................................................................................
+තනතුර ............................................................................................................................................
+දුරකථන අංකය ...............................................  ජා.හැ. අංකය ............................................................
+(* ඉහත බඩු භාණ්ඩ ගණන් බලා භාරගත් බවට අත්සන)  නම  .................................................................
+සාක්‍ෂිකරු ........................................................  හැදුනුම්පත් අංකය ....................................................
+ඉහත දී ඇති ගිවිසුම කියවා බලා මා විසින් පහත අත්සන් තබමි. සම්පුර්ණ නම ............................................ ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1" y="207" width="550" height="20" backcolor="#FF6666"
+                               uuid="227389a2-9a63-42ce-a4fa-8b48f9074223"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[භාණ්ඩ නිකුත් කළ දින සිට යලි ලැබෙන දින දක්වා මුදල් අයකරනු ලැබේ. ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1" y="226" width="550" height="15" backcolor="#FF6666"
+                               uuid="a3ea8677-8862-4b8c-a8d5-2a575403338d"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Iskoola Pota" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[මෙම භාණ්ඩ නැවත භාරදිමේදී මෙම බිල්පත රැගෙන ඒම අනිවාර්ය වේ.]]></text>
+            </staticText>
+        </band>
+    </summary>
+</jasperReport>

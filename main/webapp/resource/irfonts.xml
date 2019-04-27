@@ -1,0 +1,9 @@
+<fontfamilies>
+    <fontfamily name="Iskoola Pota">
+        <normal><!--[CDATA[iskpota.ttf]]--></normal>
+        <bold><!--[CDATA[iskpota.ttf]]--></bold>
+        <italic><!--[CDATA[iskpota.ttf]]--></italic>
+        <bolditalic><!--[CDATA[iskpota.ttf]]--></bolditalic>
+        <pdfembedded><!--[CDATA[true]]--></pdfembedded>
+    </fontfamily>
+</fontfamilies>
