@@ -48,6 +48,12 @@ public class RentoutedInvoiceController {
     @Autowired
     private DailyStockHistoryService dailyStockHistoryService;
 
+    @GetMapping("/location/{locationIdlocation}/ByDate/{sdate}/{edate}")
+    public List<RentalinvoiceEntity> allInvoiceByDates(@PathVariable("locationIdlocation") int idLocation, @PathVariable("sdate") String SDate, @PathVariable("edate") String EDate) {
+        return rentalInvoiceHeddderService.findAllRentalinvoiceByLocationAndDate(idLocation, SDate, EDate);
+    }
+
+
     @GetMapping("/byId/{id}")
     String getallRentoutedInvoice(@PathVariable int id) {
         try {

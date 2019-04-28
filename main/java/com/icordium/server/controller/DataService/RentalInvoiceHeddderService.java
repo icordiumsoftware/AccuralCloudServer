@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface RentalInvoiceHeddderService {
     List<RentalinvoiceEntity> findAllRentalinvoice();
+    List<RentalinvoiceEntity> findAllRentalinvoiceByLocationAndDate(int idLocation,String stdate,String enDate);
 
     String saveRentalinvoice(RentalinvoiceEntity rentalinvoiceEntity);
 

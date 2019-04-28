@@ -127,7 +127,7 @@ public class ReportsServiceImpl implements ReportsService {
     @Override
     public byte[] RentalInvoice(int id, ServletOutputStream inputstream, HttpServletRequest request) throws JRException, IOException, InvalidFontException {
 
-        String jasperStream = resourceLoader.getResource("/resource/reports/reports1.jrxml").getURI().getPath();
+        String jasperStream = resourceLoader.getResource("/resource/reports/reports1.jasper").getURI().getPath();
 //        InputStream jasperStream = new FileInputStream(new File(request.getContextPath()+"/resource/reports/reports1.jrxml"));
         Map<String, Object> params = new HashedMap();
         DefaultTableModel model = new DefaultTableModel();
@@ -219,7 +219,7 @@ public class ReportsServiceImpl implements ReportsService {
     @Override
     public byte[] RentalOrder(int id, ServletOutputStream inputstream, HttpServletRequest request) throws JRException, IOException, InvalidFontException {
 //        InputStream jasperStream = new FileInputStream(new File(request.getContextPath()+"/resource/reports/reports1.jrxml"));
-        String jasperStream = resourceLoader.getResource("/resource/reports/reports1.jrxml").getURI().getPath();
+        String jasperStream = resourceLoader.getResource("/resource/reports/reports1.jasper").getURI().getPath();
         Map<String, Object> params = new HashedMap();
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("COLLUMN_0");

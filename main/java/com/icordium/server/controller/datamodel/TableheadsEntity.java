@@ -81,7 +81,7 @@ public class TableheadsEntity {
         return result;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "tables_idtables", referencedColumnName = "idtables", nullable = false, insertable = false, updatable = false)
     public TablesEntity getTablesByTablesIdtables() {

@@ -533,6 +533,22 @@ public class HomeController {
         model.addAttribute("enddate", format.format(new Date()));
         return new ModelAndView("DaySummeryPage");
     }
+    @RequestMapping(value = "/rentaldaysummery", method = RequestMethod.GET)
+    public ModelAndView rentalDaySummeryPage(HttpServletRequest httpServletRequest, Model model) {
+        try {
+            if (httpServletRequest.getSession().getAttribute("userid").equals(null)) {
+                model.addAttribute("locations", locationService.findAllActiveLocation(1));
+                return new ModelAndView("login");
+            }
+        } catch (NullPointerException e) {
+            model.addAttribute("locations", locationService.findAllActiveLocation(1));
+            return new ModelAndView("login");
+        }
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        model.addAttribute("startdate", format.format(DataGenerator.getFirstDateOfCurrentMonth()));
+        model.addAttribute("enddate", format.format(new Date()));
+        return new ModelAndView("rental/RentalDaySummery");
+    }
 
     @RequestMapping(value = "/counterCloseByUser/{floatval}/{cashinhand}", method = RequestMethod.GET)
     public ModelAndView counterclose(HttpServletRequest httpServletRequest, Model model, @PathVariable("floatval") String flaotval, @PathVariable("cashinhand") String cashinhand) {

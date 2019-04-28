@@ -123,7 +123,7 @@ public class TableheadsorderEntity {
         this.employeeByEmployeeIdemployee = employeeByEmployeeIdemployee;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "tableheads_idtableheads", referencedColumnName = "idtableheads", nullable = true, updatable = false, insertable = false)
     public TableheadsEntity getTableheadsByTableheadsIdtableheads() {
